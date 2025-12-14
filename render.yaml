@@ -1,1 +1,19 @@
-
+services:
+  - type: web
+    name: telegram-osint-bot
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python app.py
+    envVars:
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: IPINFO_TOKEN
+        sync: false
+      - key: NUMVERIFY_KEY
+        sync: false
+      - key: WHOISFREAKS_KEY
+        sync: false
+      - key: SERPAPI_KEY
+        sync: false
+      - key: HIBP_USER_AGENT
+        value: "Telegram-OSINT-Bot/1.0"
