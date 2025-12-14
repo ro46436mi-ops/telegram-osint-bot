@@ -1,1 +1,1 @@
-
+# Makes cogs a package
