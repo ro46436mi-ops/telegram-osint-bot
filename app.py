@@ -1,6 +1,3 @@
-"""
-Main application file - Discord bot structure style
-"""
 import os
 import logging
 from dotenv import load_dotenv
@@ -8,13 +5,12 @@ from dotenv import load_dotenv
 # Load environment variables
 load_dotenv()
 
-# Setup logging
+# Setup logging - FIXED FOR RENDER
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler('data/logs/bot.log'),
-        logging.StreamHandler()
+        logging.StreamHandler()  # REMOVE FileHandler for Render
     ]
 )
 logger = logging.getLogger(__name__)
@@ -61,7 +57,5 @@ def main():
         logger.error(f"Bot crashed: {e}")
 
 if __name__ == "__main__":
-    # Create data directory if not exists
-    os.makedirs('data/logs', exist_ok=True)
-    
+    # REMOVE directory creation for Render
     main()
